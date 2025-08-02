@@ -25,7 +25,7 @@ const HeroSection = () => {
 
 
          <p className="text-gray-700 mb-6 text-base lg:text-lg">
-  BitFiat Capital bridges modern banking with crypto mining innovation. 
+  BitHaven Capital bridges modern banking with crypto mining innovation. 
   Fund your account and earn up to <strong>4× Bitcoin rewards</strong> through cloud mining, 
   enjoy <strong>3× returns</strong> on staking, and receive <strong>2× daily payouts</strong> 
   from referrals and GPU mining. With automated earnings, no maintenance fees, and a secure blockchain foundation, 

@@ -35,7 +35,7 @@ const TransactionHistory: React.FC = () => {
         {
           type: "Credit",
           amount: userAmount,
-          label: "BitFiat Investment",
+          label: "BitHaven Investment",
           icon: "🧾",
           date: "2025-11-07 04:43:00",
         }, 

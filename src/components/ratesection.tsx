@@ -20,7 +20,7 @@ const RatesSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-2xl lg:text-5xl font-extrabold text-blue-800 text-center mb-10"
         >
-          How BitFiat Capital Works
+          How BitHaven Works
         </motion.h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -32,7 +32,7 @@ const RatesSection = () => {
             className="lg:w-1/2"
           >
             <p className="text-gray-700 text-lg leading-relaxed">
-              At <strong>BitFiat Capital</strong>, we simplify access to the world of
+              At <strong>BitHaven</strong>, we simplify access to the world of
               crypto mining and digital asset growth.
               <br /><br />
               Our infrastructure is powered by state-of-the-art mining equipment and a secure, high-performance network—delivering consistent results for all participants.
@@ -73,7 +73,7 @@ const RatesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-2xl lg:text-5xl font-extrabold text-blue-800 text-center mb-10"
         >
-          Why BitFiat Capital?
+          Why BitHaven?
         </motion.h2>
 
         <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -85,7 +85,7 @@ const RatesSection = () => {
             transition={{ duration: 0.9 }}
           >
             <p className="text-lg text-gray-800 leading-relaxed mb-6">
-              <strong>BitFiat Capital</strong> is a global leader in crypto asset management, offering a smart and secure way to mine top digital currencies without stress. Our mining platform is built to maximize returns using reliable technologies and industry-best practices.
+              <strong>BitHaven</strong> is a global leader in crypto asset management, offering a smart and secure way to mine top digital currencies without stress. Our mining platform is built to maximize returns using reliable technologies and industry-best practices.
             </p>
 
             <p className="text-lg text-gray-800 leading-relaxed mb-6">
@@ -107,7 +107,7 @@ const RatesSection = () => {
   <div className="w-full h-[400px] lg:h-[480px] rounded-xl overflow-hidden shadow-lg">
     <iframe
       src="https://www.youtube.com/embed/OZPHtoiEGWI"
-      title="BitFiat Capital Introduction"
+      title="BitHaven Capital Introduction"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
       className="w-full h-full rounded-xl"

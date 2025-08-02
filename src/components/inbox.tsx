@@ -21,7 +21,7 @@ const messages: Message[] = [
     id: 1,
     icon: <ShieldAlert className="text-red-600" size={24} />,
     subject: "Withdrawal Restricted: Tier-2 Clearance Required",
-    preview: "Your BitFiat account requires Tier-2 Unlock to enable withdrawals and outbound transactions.",
+    preview: "Your BitHaven account requires Tier-2 Unlock to enable withdrawals and outbound transactions.",
     full: `🚫 Withdrawal Access Restricted – Tier-2 Clearance Required.
 
 To proceed with withdrawals or external transfers, your account must meet Tier-2 compliance. A reserve unlock transaction of $107,544.00 USD is required to complete this process.`,
@@ -42,8 +42,8 @@ To avoid any disruption in your mining or banking features, please log in and up
     id: 3,
     icon: <CreditCard className="text-green-600" size={24} />,
     subject: "Virtual Debit Card Approved",
-    preview: "Your BitFiat virtual debit card has been approved and will be issued shortly.",
-    full: `Great news! Your BitFiat Capital virtual debit card has been successfully approved. 
+    preview: "Your BitHaven virtual debit card has been approved and will be issued shortly.",
+    full: `Great news! Your BitHaven Capital virtual debit card has been successfully approved. 
 The card will be linked to your wallet and issued within 2–3 business days.`,
     date: "July 1, 2025",
     unread: true,
@@ -53,7 +53,7 @@ The card will be linked to your wallet and issued within 2–3 business days.`,
     icon: <Info className="text-blue-500" size={24} />,
     subject: "New Update: Mining & Wallet Insights",
     preview: "Monitor earnings and spending with the new performance dashboard.",
-    full: `A new analytics feature is now available on your BitFiat dashboard. 
+    full: `A new analytics feature is now available on your BitHaven dashboard. 
 Track your mining performance, wallet activity, and spending insights in real-time.`,
     date: "June 29, 2025",
     unread: false,
@@ -64,7 +64,7 @@ Track your mining performance, wallet activity, and spending insights in real-ti
     subject: "KYC Verified — Full Access Granted",
     preview: "Your identity verification is now complete. Enjoy unrestricted access to all features.",
     full: `Congratulations! Your KYC verification has been successfully completed. 
-You now have full access to mining rewards, banking services, and referral payouts within BitFiat Capital.`,
+You now have full access to mining rewards, banking services, and referral payouts within BitHaven Capital.`,
     date: "June 25, 2025",
     unread: false,
   },

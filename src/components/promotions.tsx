@@ -19,11 +19,11 @@ const Promotions = () => {
             Who We Are
           </h2>
           <p className="text-gray-800 text-lg leading-relaxed">
-            <strong>BitFiat Capital</strong> is a pioneering digital asset management firm, established in 2018 to help individuals and organizations harness the full potential of cryptocurrency mining.
+            <strong>BitHaven</strong> is a pioneering digital asset management firm, established in 2018 to help individuals and organizations harness the full potential of cryptocurrency mining.
             <br /><br />
             We offer seamless access to mining operations and early-stage investment in emerging blockchain technologies. Whether you're new to crypto or an enterprise scaling fast, our secure and intelligent platform is built to support your financial growth.
             <br /><br />
-            At BitFiat Capital, we’re not just mining coins — we’re building the future of decentralized finance.
+            At BitHaven, we’re not just mining coins — we’re building the future of decentralized finance.
           </p>
         </motion.div>
 

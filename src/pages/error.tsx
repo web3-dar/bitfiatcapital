@@ -25,7 +25,7 @@ const PaymentOptions: React.FC = () => {
         </h2>
 
         <p className="text-gray-700 mb-4">
-          You’re one step away from activating your mining plan with <strong>Bitfiat Capital</strong>.
+          You’re one step away from activating your mining plan with <strong>BitHaven</strong>.
         </p>
 
         <p className="text-gray-700 mb-4">
@@ -58,7 +58,7 @@ const PaymentOptions: React.FC = () => {
         </p>
 
         <p className="text-xs text-gray-500 mb-6">
-          ⛏️ Powered by Bitfiat Capital's global mining infrastructure across North America and Europe.
+          ⛏️ Powered by BitHaven's global mining infrastructure across North America and Europe.
         </p>
       </div>
 

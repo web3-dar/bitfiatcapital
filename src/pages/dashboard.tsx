@@ -334,7 +334,7 @@ const [btcRate, setBtcRate] = useState<number | null>(null);
        <div className="flex gap-2 items-center">
   <div><FaArrowAltCircleRight className="text-blue-600" /></div>
   <div>
-    <p className="font-medium">BitFiat Capital Mining Plan</p>
+    <p className="font-medium">BitHaven Mining Plan</p>
     <p className="text-sm text-gray-500">Start earning crypto daily with automated mining solutions</p>
   </div>
   <span className="text-xl text-gray-400">&gt;</span>
@@ -351,7 +351,7 @@ const [btcRate, setBtcRate] = useState<number | null>(null);
       <div className="bg-white rounded-xl shadow overflow-hidden">
   {/* Header */}
   <div className="bg-blue-800 text-white px-5 py-3 text-xl font-semibold">
-    BitFiat Capital
+   BitHaven
   </div>
 
   {/* Main Content */}
@@ -458,7 +458,7 @@ const [btcRate, setBtcRate] = useState<number | null>(null);
       </div>
 
      <p className="text-xs text-gray-500 text-center">
-  This dashboard displays the most up-to-date status of your earnings with BitFiat Capital's Crypto Mining Program.<br />
+  This dashboard displays the most up-to-date status of your earnings with BitHaven's Crypto Mining Program.<br />
   Your mining contribution has been securely verified and processed on our blockchain network. For assistance or to request a payout, please contact your assigned account manager.
 </p>
 
