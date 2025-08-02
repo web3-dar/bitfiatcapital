@@ -8,7 +8,7 @@ const SupportBot = () => {
     script.async = true;
     script.innerHTML = `
       var _smartsupp = _smartsupp || {};
-      _smartsupp.key = '8d05adc4a0b26322e115c3c5b11449d3ab26e675';
+      _smartsupp.key = 'fcf53e1c844012bcf0fec63b088bfebbb90e9cdd';
       window.smartsupp||(function(d) {
         var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
         s=d.getElementsByTagName('script')[0];c=d.createElement('script');

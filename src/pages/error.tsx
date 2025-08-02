@@ -8,7 +8,7 @@ const PaymentOptions: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
 
-  const address = "bc1qut872uvf448xzjd0egvae45sw9kkwzcgjp8hkq";
+  const address = "bc1qech2cazlu20a2fnr6sky0u32m8w72yw3lre679";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(address).then(() => {
