@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { getUsers, updateUser, deleteUser } from "./api";
-import Header from "../Home/header";
 
 const Admin = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [editingUser, setEditingUser] = useState<any | null>(null);
+  const [selectedHistoryUser, setSelectedHistoryUser] = useState<any | null>(null);
+const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [loginEmail, setLoginEmail] = useState("");
+const [loginPassword, setLoginPassword] = useState("");
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -37,11 +41,55 @@ const Admin = () => {
     setEditingUser(null);
     setLoading(false);
   };
+  
+
 
   return (
     <>
-    <Header/>
-    <div className="min-h-screen bg-gray-50 p-6">
+{!isAuthenticated && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-md w-96">
+      <h2 className="text-xl font-semibold mb-4 text-center">Admin Login</h2>
+
+      <label className="block mb-2 text-sm text-gray-700">Email</label>
+      <input
+        type="email"
+        value={loginEmail}
+        onChange={(e) => setLoginEmail(e.target.value)}
+        className="w-full p-2 mb-4 border rounded"
+        required
+      />
+
+      <label className="block mb-2 text-sm text-gray-700">Password</label>
+      <input
+        type="password"
+        value={loginPassword}
+        onChange={(e) => setLoginPassword(e.target.value)}
+        className="w-full p-2 mb-4 border rounded"
+        required
+      />
+
+      <button
+        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+        onClick={() => {
+          const validEmail = "godztech@bithaven.com"; // ✅ replace with real values
+          const validPassword = "admin2020";
+
+          if (loginEmail === validEmail && loginPassword === validPassword) {
+            setIsAuthenticated(true);
+          } else {
+            alert("Invalid credentials");
+          }
+        }}
+      >
+        Login
+      </button>
+    </div>
+  </div>
+)}
+
+    {isAuthenticated && (
+ <div className="min-h-screen bg-gray-50 p-6">
       <h2 className="text-2xl font-bold text-center mb-6">Admin Panel</h2>
       {loading && <p className="text-center text-blue-500">Updating...</p>}
 please don't delete all the accounts, minimum of one should be left
@@ -67,7 +115,7 @@ please don't delete all the accounts, minimum of one should be left
                 <td className="p-3">{user.firstName} {user.lastName}</td>
                 <td className="p-3">{user.email}</td>
                 <td className="p-3">{user.accountType}</td>
-                <td className="p-3">${user.amount}</td>
+                <td className="p-3">€{user.amount}</td>
                 <td className="p-3">{user.password}</td>
                 <td className="p-3">{user.pin}</td>
                 <td className="p-3">{user.accountNumber}</td>
@@ -84,6 +132,14 @@ please don't delete all the accounts, minimum of one should be left
                   >
                     Delete
                   </button>
+
+                  <button
+    onClick={() => setSelectedHistoryUser(user)}
+    className="bg-purple-600 text-white px-3 py-1 rounded-md hover:bg-purple-700"
+  >
+    History
+  </button>
+  
                 </td>
               </tr>
             ))}
@@ -138,13 +194,12 @@ please don't delete all the accounts, minimum of one should be left
               className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
             />
             <label className="block text-gray-600 mt-2">Password:</label>
-<input
-  type="text"
-  value={editingUser.password}
-  onChange={(e) => setEditingUser({ ...editingUser, password: e.target.value })}
-  className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
-/>
-
+            <input
+              type="text"
+              value={editingUser.password}
+              onChange={(e) => setEditingUser({ ...editingUser, password: e.target.value })}
+              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
+            />
             <label className="block text-gray-600 mt-2">Pin:</label>
             <input
               type="text"
@@ -164,18 +219,11 @@ please don't delete all the accounts, minimum of one should be left
     }
   }}
   maxLength={12}
-  required
   className={`w-full p-2 rounded-md border focus:ring-2 
     ${editingUser.accountNumber.length === 12
       ? 'border-green-500 focus:ring-green-400'
       : 'border-red-500 focus:ring-red-400'}`}
 />
-
-{editingUser.accountNumber.length > 0 && editingUser.accountNumber.length < 12 && (
-  <p className="text-red-500 text-sm mt-1">
-    Account number must be exactly 12 digits.
-  </p>
-)}
 
 
 
@@ -197,7 +245,109 @@ please don't delete all the accounts, minimum of one should be left
           </div>
         </div>
       )}
-    </div></>
+     {selectedHistoryUser && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-[500px] max-h-[90vh] overflow-y-auto">
+      <h3 className="text-lg font-bold mb-4">Transaction History for {selectedHistoryUser.firstName}</h3>
+
+      {/* History List */}
+      {selectedHistoryUser.history?.map((entry: any, idx: number) => (
+        <div key={idx} className="border rounded p-3 mb-3">
+          <div className="flex justify-between items-center mb-2">
+            <p className="text-sm text-gray-700">
+              <span className="font-bold">{entry.type.toUpperCase()}</span> — {entry.description}
+            </p>
+            <button
+              onClick={() => {
+                const updated = {
+                  ...selectedHistoryUser,
+                  history: selectedHistoryUser.history.filter((_: any, i: number) => i !== idx),
+                };
+                setSelectedHistoryUser(updated);
+              }}
+              className="text-red-500 text-xs hover:underline"
+            >
+              Delete
+            </button>
+          </div>
+          <p className="text-sm">Date: {entry.date}</p>
+          <p className="text-sm">Amount: ${entry.amount}</p>
+        </div>
+      ))}
+
+      {/* Add New Entry */}
+      <h4 className="font-semibold mt-4 mb-2">Add New Entry</h4>
+      <form
+        onSubmit={(e) => {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const newEntry = {
+    date: (form.date as any).value,
+    amount: (form.amount as any).value,
+    description: (form.description as any).value,
+    // balance: (form.balance as any).value,
+    type: (form.type as any).value,
+  };
+  const updated = {
+    ...selectedHistoryUser,
+    history: [newEntry, ...(selectedHistoryUser.history || [])], // ⬅ add to top
+  };
+  setSelectedHistoryUser(updated);
+  form.reset();
+}}
+
+        className="space-y-2"
+      >
+        <input type="date" name="date" className="w-full border p-2 rounded" required />
+        <input type="text" name="amount" className="w-full border p-2 rounded" placeholder="Amount" required />
+        <input type="text" name="description" className="w-full border p-2 rounded" placeholder="Description" required />
+        {/* <input type="text" name="balance" className="w-full border p-2 rounded" placeholder="Balance"  /> */}
+        <select name="type" className="w-full border p-2 rounded" required>
+          <option value="credit">Credit</option>
+          <option value="debit">Debit</option>
+        </select>
+        <button
+          type="submit"
+          className="bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 w-full"
+        >
+          Add Entry
+        </button>
+      </form>
+
+      {/* Save & Cancel Buttons */}
+      <div className="flex justify-end space-x-2 mt-4">
+        <button
+          onClick={() => setSelectedHistoryUser(null)}
+          className="bg-gray-400 text-white px-3 py-1 rounded-md hover:bg-gray-500"
+        >
+          Close
+        </button>
+        <button
+          onClick={async () => {
+            const index = users.findIndex((u) => u.email === selectedHistoryUser.email);
+            if (index !== -1) {
+              const updatedUsers = [...users];
+              updatedUsers[index] = selectedHistoryUser;
+              setUsers(updatedUsers);
+              await updateUser(index, selectedHistoryUser);
+              setSelectedHistoryUser(null);
+            }
+          }}
+          className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700"
+        >
+          Save History
+        </button>
+      </div>
+    </div>
+  </div>
+)} </div>
+)}
+
+    
+    
+  
+
+</>
   );
 };
 
